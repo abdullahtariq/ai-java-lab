@@ -6,7 +6,7 @@ public class LruLinkedDemo {
         private final int capacity;
 
         LruCache(int capacity) {
-            super(16, 0.75f, false);
+            super(16, 0.75f, true);
             this.capacity = capacity;
         }
 
@@ -17,7 +17,7 @@ public class LruLinkedDemo {
     }
 
 
-    public static void main (String[] main) {
+    public static void main (String[] args) {
         LruCache<String, Integer> cache = new LruCache<>(3);
 
         cache.put("Khobar", 1);
@@ -29,7 +29,7 @@ public class LruLinkedDemo {
         System.out.println("After get: " + cache);
 
         cache.put("Jeddah", 4);
-        System.out.println("After Jeddah:" + cache);
+        System.out.println("After Jeddah: " + cache);
 
     }
 }
