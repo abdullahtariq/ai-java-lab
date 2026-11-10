@@ -93,5 +93,24 @@ public class LruCache<K, V> {
 
         cache.put("Jeddah", 4);
         System.out.println("After Jeddah: " + cache);
+
+        System.out.println("get Dammam:   " + cache.get("Dammam"));
+
+         // Edge 2: put a key that's already on the shelf (cache is full)
+        cache.put("Riyadh", 30);
+        System.out.println("Update Riyadh: " + cache);
+
+        // Edge 3: a shelf that holds only one book
+        LruCache<String, Integer> tiny = new LruCache<>(1);
+        tiny.put("A", 1);
+        tiny.put("B", 2);
+        System.out.println("Capacity 1:   " + tiny);
+
+        // Edge 4: a shelf that holds zero books
+        try {
+            new LruCache<String, Integer>(0);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Capacity 0:   " + e.getMessage());
+        }
     }
 }
